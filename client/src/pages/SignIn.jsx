@@ -22,8 +22,8 @@ function App() {
     const [signIn, setSignIn] = useState(true);
     
     return (
-        <Container className="centered-container">
-            <SignUpContainer signinIn={signIn}>
+        <Container className="centred-container">
+            <SignUpContainer signIn={signIn}>
                 <Form>
                     <Title>Create Account</Title>
                     <Input type='text' placeholder='Name' />
@@ -33,7 +33,7 @@ function App() {
                 </Form>
             </SignUpContainer>
 
-            <SignInContainer signinIn={signIn}>
+            <SignInContainer signIn={signIn}>
                 <Form>
                     <Title>Sign in</Title>
                     <Input type='email' placeholder='Email' />
@@ -43,9 +43,9 @@ function App() {
                 </Form>
             </SignInContainer>
 
-            <OverlayContainer signinIn={signIn}>
-                <Overlay signinIn={signIn}>
-                    <LeftOverlayPanel signinIn={signIn}>
+            <OverlayContainer signIn={signIn}>
+                <Overlay signIn={signIn}>
+                    <LeftOverlayPanel signIn={signIn}>
                         <Title>Welcome Back!</Title>
                         <Paragraph>
                             To keep connected with us please login with your personal info
@@ -55,7 +55,7 @@ function App() {
                         </GhostButton>
                     </LeftOverlayPanel>
 
-                    <RightOverlayPanel signinIn={signIn}>
+                    <RightOverlayPanel signIn={signIn}>
                         <Title>Hello, Buyer!</Title>
                         <Paragraph>
                             Enter Your personal details and start journey with us
