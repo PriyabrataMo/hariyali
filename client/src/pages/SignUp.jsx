@@ -1,14 +1,22 @@
 import styled from 'styled-components';
-
 export const Container = styled.div`
-  background-color:#fff;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: relative;
+  background: #fff; 
+  border-radius: 25px;
+  box-shadow: 0 17px 30px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
   overflow: hidden;
   width: 678px;
   max-width: 100%;
   min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 20%;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+  margin: auto;
+  backdrop-filter: blur(10px);
 `;
 
 export const SignUpContainer = styled.div`
@@ -20,13 +28,13 @@ export const SignUpContainer = styled.div`
   width: 50%;
   opacity: 0;
   z-index: 1;
-  ${props => props.signinIn !== true ? `
+  ${props => props.signIn !== true ? `
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
   ` 
   : null}
-`;
+ `;
 
 export const SignInContainer = styled.div`
   position: absolute;
@@ -36,7 +44,7 @@ export const SignInContainer = styled.div`
   left: 0;
   width: 50%;
   z-index: 2;
-  ${props => (props.signinIn !== true ? `transform: translateX(100%);` : null)}
+  ${props => (props.signIn !== true ? `transform: translateX(100%);` : null)}
 `;
 
 export const Form = styled.form`
@@ -65,8 +73,8 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
+  border: 1px solid transparent; /* Remove border for better gradient effect */
+  background: linear-gradient(to right, #1fab89, #12c2e9); /* Gradient from #1fab89 to #12c2e9 */
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -74,7 +82,7 @@ export const Button = styled.button`
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
-  &:active{
+  &:active {
     transform: scale(0.95);
   }
   &:focus {
@@ -104,13 +112,13 @@ export const OverlayContainer = styled.div`
   transition: transform 0.6s ease-in-out;
   z-index: 100;
   ${props =>
-    props.signinIn !== true ? `transform: translateX(-100%);` : null}
+    props.signIn !== true ? `transform: translateX(-100%);` : null}
 `;
 
 export const Overlay = styled.div`
-background: #007600; /* Fallback color */
-background: -webkit-linear-gradient(to right, #006400, #66ff66); /* For Chrome, Safari, and Opera */
-background: linear-gradient(to right, #006400, #66ff66); /* Standard syntax */
+border-radius: 20px;
+border: 1px solid transparent; /* Remove border for better gradient effect */
+background: linear-gradient(to right, #004d99, #004d00); /* Gradient from dark blue to dark green */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -121,7 +129,7 @@ background: linear-gradient(to right, #006400, #66ff66); /* Standard syntax */
   width: 200%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
-  ${props => (props.signinIn !== true ? `transform: translateX(50%);` : null)}
+  ${props => (props.signIn !== true ? `transform: translateX(50%);` : null)}
 `;
 
 export const OverlayPanel = styled.div`
@@ -141,13 +149,13 @@ export const OverlayPanel = styled.div`
 
 export const LeftOverlayPanel = styled(OverlayPanel)`
   transform: translateX(-20%);
-  ${props => props.signinIn !== true ? `transform: translateX(0);` : null}
+  ${props => props.signIn !== true ? `transform: translateX(0);` : null}
 `;
 
 export const RightOverlayPanel = styled(OverlayPanel)`
   right: 0;
   transform: translateX(0);
-  ${props => props.signinIn !== true ? `transform: translateX(20%);` : null}
+  ${props => props.signIn !== true ? `transform: translateX(20%);` : null}
 `;
 
 export const Paragraph = styled.p`
