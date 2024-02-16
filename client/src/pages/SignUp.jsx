@@ -1,22 +1,26 @@
 import styled from 'styled-components';
 export const Container = styled.div`
-  background: #fff; 
-  border-radius: 25px;
-  box-shadow: 0 17px 30px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: absolute;
-  overflow: hidden;
-  width: 678px;
-  max-width: 100%;
-  min-height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 20%;
-  left: 0;
-  right: 0;
-  bottom: 20%;
-  margin: auto;
-  backdrop-filter: blur(10px);
+background: #fff; 
+border-radius: 30px;
+box-shadow: 0 17px 30px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+position: absolute;
+overflow: hidden;
+width: 678px;
+max-width: 100%;
+min-height: 400px;
+display: flex;
+justify-content: center;
+align-items: center;
+top: 20%;
+left: 0;
+right: 0;
+bottom: 20%;
+margin: auto;
+backdrop-filter: blur(10px);
+transition: box-shadow 0.3s ease-in-out;
+&:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 15px rgba(0, 0, 0, 0.25);
+}
 `;
 
 export const SignUpContainer = styled.div`
@@ -38,7 +42,7 @@ export const SignUpContainer = styled.div`
 
 export const SignInContainer = styled.div`
   position: absolute;
-  top: 0;
+  top: 0px;
   height: 100%;
   transition: all 0.6s ease-in-out;
   left: 0;
@@ -51,11 +55,15 @@ export const Form = styled.form`
   background-color: #ffffff;
   display: flex;
   align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   justify-content: center;
   flex-direction: column;
   padding: 0 50px;
   height: 100%;
   text-align: center;
+  &:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
 `;
 
 export const Title = styled.h1`
@@ -64,30 +72,50 @@ export const Title = styled.h1`
 `;
 
 export const Input = styled.input`
-  background-color: #eee;
-  border: none;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 100%;
+background-color: #f5f5f5; /* Lighter background color */
+border: 1px;
+border-radius: 20px; /* Rounded corners */
+padding: 14px 20px; /* Increase padding for better spacing */
+margin: 10px 0; /* Increase margin for better spacing */
+width: 100%;
+box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+transition: box-shadow 0.3s ease-in-out; /* Add transition for the shadow */
+
+/* Hover effect */
+&:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Focus effect */
+&:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow when focused */
+}
 `;
 
 export const Button = styled.button`
-  border-radius: 20px;
-  border: 1px solid transparent; /* Remove border for better gradient effect */
-  background: linear-gradient(to right, #1fab89, #12c2e9); /* Gradient from #1fab89 to #12c2e9 */
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 12px 45px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
-  &:active {
-    transform: scale(0.95);
-  }
-  &:focus {
-    outline: none;
-  }
+border-radius: 20px;
+border: none;
+background: linear-gradient(to right, #007bff, #28a745);
+color: #ffffff;
+font-size: 14px;
+font-weight: bold;
+padding: 12px 45px;
+letter-spacing: 1px;
+text-transform: uppercase;
+transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+&:hover {
+  transform: scale(1.05); /* Scale button slightly on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+&:active {
+  transform: scale(0.95);
+}
+&:focus {
+  outline: none;
+}
 `;
 
 export const GhostButton = styled(Button)`
@@ -118,15 +146,15 @@ export const OverlayContainer = styled.div`
 export const Overlay = styled.div`
 border-radius: 20px;
 border: 1px solid transparent; /* Remove border for better gradient effect */
-background: linear-gradient(to right, #004d99, #004d00); /* Gradient from dark blue to dark green */
+background: linear-gradient(to right, #004d99, #15F5BA); /* Gradient from dark blue to dark green */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
   color: #ffffff;
   position: relative;
-  left: -100%;
-  height: 100%;
-  width: 200%;
+  left: -102%;
+  height: 110%;
+  width: 203%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
   ${props => (props.signIn !== true ? `transform: translateX(50%);` : null)}
