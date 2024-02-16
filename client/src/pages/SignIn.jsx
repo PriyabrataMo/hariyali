@@ -47,14 +47,15 @@ function App() {
                     <Input type='email' placeholder='Email' id='signupEmail' onChange={handleChange}/>
                     <Input type='password' placeholder='Password' id='signupPassword' onChange={handleChange}/>
                     <Button>Sign Up</Button>
+                    {
+                    errorMessage && (
+                        <Alert className='mt-5' color='failure'>
+                            {errorMessage}
+                        </Alert>
+                    )
+                    }
                 </Form>
-                {
-                errorMessage && (
-                    <Alert className='mt-5' color='failure'>
-                        {errorMessage}
-                    </Alert>
-                )
-                }
+                
             </SignUpContainer>
             
 
