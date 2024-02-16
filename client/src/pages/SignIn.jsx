@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Alert } from "flowbite-react";
 import{
   Container,
   SignUpContainer,
@@ -17,28 +18,53 @@ import{
   Paragraph
 } from './SignUp';
 
-
 function App() {
+    const [formData, setFormData] = useState({});
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [successMessage, setSuccessMessage] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [signIn, setSignIn] = useState(true);
-    
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!formData.signupUsername || !formData.signupEmail || !formData.signupPassword) {
+            return setErrorMessage('Please fill all the fields!');
+        }
+        try {
+            const res = await fetch 
+        } catch (error) {
+            
+        }
+    }
     return (
         <Container className="centred-container">
             <SignUpContainer signIn={signIn}>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Title>Create Account</Title>
-                    <Input type='text' placeholder='Name' />
-                    <Input type='email' placeholder='Email' />
-                    <Input type='password' placeholder='Password' />
+                    <Input type='text' placeholder='Name' id='signupUsername' onChange={handleChange}/>
+                    <Input type='email' placeholder='Email' id='signupEmail' onChange={handleChange}/>
+                    <Input type='password' placeholder='Password' id='signupPassword' onChange={handleChange}/>
                     <Button>Sign Up</Button>
+                    {
+                    errorMessage && (
+                        <Alert className='mt-5' color='failure'>
+                            {errorMessage}
+                        </Alert>
+                    )
+                    }
                 </Form>
+                
             </SignUpContainer>
+            
 
             <SignInContainer signIn={signIn}>
                 <Form>
-                    <Title>Sign in</Title>
-                    <Input type='email' placeholder='Email' />
-                    <Input type='password' placeholder='Password' />
-                    <Anchor href='#'>Forgot your password?</Anchor>
+                    <Title>Sign In</Title>
+                    <Input type='email' placeholder='Email' id='signin.email' onChange={handleChange} />
+                    <Input type='password' placeholder='Password' id='signin.password' onChange={handleChange}/>
+                    <Anchor href='#'>Forgot your Password?</Anchor>
                     <Button>Sign In</Button>
                 </Form>
             </SignInContainer>
