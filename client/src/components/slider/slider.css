@@ -1,0 +1,82 @@
+.carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 400px;
+  overflow: hidden; /* Hide overflow */
+}
+
+.slide {
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Hide overflowing content */
+  transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.slide-hidden {
+  display: none;
+}
+
+/* Add some style to the arrow buttons */
+.arrow {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  color: gray;
+  background-color: transparent; /* Set background color to transparent */
+  border: 1px solid white; /* Add a white border */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for arrow buttons */
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor : pointer;
+}
+
+.arrow-left {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow-right {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Style indicators */
+.indicators {
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+}
+
+.indicator {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 100%;
+  border: none;
+  outline: none;
+  margin: 0 0.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Inactive indicator */
+.indicator-inactive {
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+}
+
+/* Hover effect for indicators */
+.indicator:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fully opaque white */
+}
