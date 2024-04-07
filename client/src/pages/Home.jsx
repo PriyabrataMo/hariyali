@@ -1,7 +1,11 @@
 import React from 'react'
-
+import Slider from './Carousel'
+import Dropdown from '../components/Dropdown/Dropdrown.jsx'
 export default function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Slider />
+      <Dropdown />
+    </div>
   )
 }

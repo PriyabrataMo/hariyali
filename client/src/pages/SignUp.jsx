@@ -25,7 +25,7 @@ transition: box-shadow 0.3s ease-in-out;
 
 export const SignUpContainer = styled.div`
   position: absolute;
-  top: 0;
+  top: 0px;
   height: 100%;
   transition: all 0.6s ease-in-out;
   left: 0;

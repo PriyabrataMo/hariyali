@@ -1,0 +1,138 @@
+:root {
+  --bg: #d5f7e9;              /* Light green background */
+  --bg-accent: #83c5be;       /* Accent gradient color */
+  --text-color: #303030;      /* Dark text color */
+  --nav-size: 50px;
+  --border: 1px solid #9bc48f;  /* Light green border */
+  --border-radius: 8px;
+  --speed: 0.5s;              /* Smooth transition speed */
+}
+
+/* Top Navigation Bar */
+.navbar {
+  height: var(--nav-size);
+  background: linear-gradient(to right, var(--bg), var(--bg-accent)); /* Gradient background */
+  padding: 0 1rem;
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex;
+}
+
+.nav-item {
+  width: calc(var(--nav-size) * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+/* Icon Button */
+.icon-button {
+  --button-size: calc(var(--nav-size) * 0.5);
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: #83c5be; /* Accent color */
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+}
+
+.icon-button:hover {
+  filter: brightness(1.2);
+}
+
+.icon-button svg { 
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 58 px;
+  height: 100px;
+  width: 300px;
+  transform: translateX(+15%) translateY(+35%);
+  background: linear-gradient(to right, var(--bg), var(--bg-accent)); /* Gradient background */
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+}
+
+.menu {
+  position: relative;
+  width: 100%;
+}
+
+.menu-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  padding: 0.5rem;
+}
+
+.menu-item .icon-button {
+  margin-right: 0.5rem;
+}
+
+.menu-item .icon-button:hover {
+  filter: none;
+}
+
+.menu-item:hover {
+  background-color: #cdeac3; /* Hover color */
+}
+
+/* CSSTransition classes  */
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+
+.menu-primary-exit {
+  position: absolute;
+}
+
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+}
+
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+
+.menu-secondary-exit {
+}
+
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}
